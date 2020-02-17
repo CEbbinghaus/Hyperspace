@@ -1,16 +1,18 @@
 <head>
-  <title>Hyperspace</title>
-  <meta name="description" content="A 2D Canvas Hyperspace Visual">
-  <meta name="og:image" content="./index.png">
-  <link rel="stylesheet" href="./indec.css">
-  <script src="./hyperspace.js"></script>
+	<title>Hyperspace</title>
+	<meta name="description" content="A 2D Canvas Hyperspace Visual">
+	<meta name="og:image" content="./index.png">
+	<link rel="stylesheet" href="./indec.css">
+	<script src="./hyperspace.js"></script>
 </head>
+
 <body>
-  <script>
-    onload = () => {
-      window.hyperSpace = new Hyperspace("canvas");
-      console.log(hyperSpace);
-    }
-  </script>
-  <canvas id="canvas"></canvas>
+	<script>
+		onload = () => {
+			new Mouse();
+			window.hyperSpace = new Hyperspace("canvas");
+			console.log(hyperSpace);
+		}
+	</script>
+	<canvas id="canvas"></canvas>
 </body>
