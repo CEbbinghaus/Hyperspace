@@ -15,6 +15,25 @@ class Hyperspace {
 	constructor(e) {
 		this.element = e.tagName ? e : document.getElementById(e);
 		if(!this.element || this.element.tagName !== "CANVAS") throw "You must Supply a Canvas Element";
+
+		this.element.onclick = () => {
+			this.element.style.cursor = "none";
+		}
+
+		// /**
+		//  * 
+		//  * @param {KeyboardEvent} evt
+		//  */
+		window.onkeydown = (evt) => {
+			console.log(evt);
+			if(evt.key == "Escape") {
+				this.element.style.cursor = "default";
+			}
+			if(evt.key == "f")
+				openFullscreen();
+		}
+
+
 		this.ctx = this.element.getContext("2d");
 		this.points = Array.from(new Array(100)).fill(star);
 		this.lastTime = 0;
@@ -88,4 +107,15 @@ Array.prototype.fill = function(e) {
 		this[i] = new e();
 	}
 	return this;
+}
+
+function openFullscreen() {
+	const e = document.documentElement;
+	if(e.requestFullscreen) {
+		e.requestFullscreen();
+	} else if(e.webkitRequestFullscreen) { /* Safari */
+		e.webkitRequestFullscreen();
+	} else if(e.msRequestFullscreen) { /* IE11 */
+		e.msRequestFullscreen();
+	}
 }
